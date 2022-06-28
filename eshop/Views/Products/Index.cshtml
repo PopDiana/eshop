@@ -1,0 +1,25 @@
+﻿@model IEnumerable<eshop.Models.Product>
+    
+<a asp-action="Create" class="btn btn-primary btn-sm" style="margin-bottom:3%; margin-top:3%">+ new product</a>
+<div class="btn-group" style="float:right;margin-bottom:3%; margin-top:3%">
+    <a href="#" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        category
+    </a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("all", "Index", "Products", new { byCategory = "all" })</li>
+        @foreach (string c in ViewBag.categories)
+        {
+            <li>@Html.ActionLink(c, "Index", "Products", new { byCategory = c })</li>
+        }
+    </ul>
+</div>
+<div class="row">
+    @foreach (Product item in Model)
+    {
+
+        <partial name="_ProductCard" model="item" />
+
+    }
+</div>
+
+

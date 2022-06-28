@@ -1,0 +1,19 @@
+﻿@model Product
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ProductId">
+
+            <img class="poster" style="height:300px" src="@Url.Content("~/Documents/Images/" + Model.Image)" alt="Image">
+        </a>
+        <div class="caption">
+            <h4 class="pull-right">@Model.Price.ToString("c")</h4>
+            <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ProductId">
+                <h4 class="text-info">
+                    @Model.Name
+                </h4>
+            </a>
+            <h5>@Model.Description</h5>
+        </div>
+    </div>
+</div>
